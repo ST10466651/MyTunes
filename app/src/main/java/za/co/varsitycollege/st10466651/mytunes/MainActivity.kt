@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -12,22 +13,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 //Mutable Array Globally Accessible
-data class Songs(
-    var title: String,
-    var singer: String,
-    var rate: Int,
-    var opinion: String
-)
-
-val songs: MutableList<Songs> = mutableListOf(
-    Songs("My Darling", "Chella", 4, "Great beats"),
-    Songs("Isaka(6am)", "CIZA, Jazzworx", 3, "A bit repetative"),
-    Songs("Show Me Love", "WizTheMc, bees & honey", 5, "Amazing after a long day"),
-    Songs("Juicy", "Doja Cat, Tyga", 2, "It's not my type of music"),
-)
-
-//Global index
-var index = 0
+var music = ArrayList<String>()
+var singer = ArrayList<String>()
+var rate= ArrayList<Int>()
+var opinion= ArrayList<String>()
 
 @Suppress("CAST_NEVER_SUCCEEDS")
 class MainActivity : AppCompatActivity() {
@@ -66,12 +55,10 @@ class MainActivity : AppCompatActivity() {
 
         //Add to Playlist Button
         add.setOnClickListener {
-            index = 4
             val titles = song.text.toString().trim().lowercase()
             val singers = artist.text.toString().trim().lowercase()
             val rates = ratings.text.toString().trim().lowercase()
             val opinions = comments.text.toString().trim().lowercase()
-
 
             if (titles.isEmpty() or singers.isEmpty() or rates.isEmpty() or opinions.isEmpty()) {
                 val builder = AlertDialog.Builder(this)
@@ -84,12 +71,16 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-
-            songs[index].title = song.text.toString()
-            songs[index].singer = artist.text.toString()
-            songs[index].rate = ratings.text as Int
-            songs[index].opinion = comments.text.toString()
-            index++
+            val ratez = rates.toInt()
+            music.add(song.text.toString())
+            singer.add(artist.text.toString())
+            rate.add(ratez)
+            opinion.add(comments.text.toString())
+            Toast.makeText(this, "Song added!!!", Toast.LENGTH_SHORT).show()
+            song.text.clear()
+            artist.text.clear()
+            ratings.text.clear()
+            comments.text.clear()
         }
     }
 }
