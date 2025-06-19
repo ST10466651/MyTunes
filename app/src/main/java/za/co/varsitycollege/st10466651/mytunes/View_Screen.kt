@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class ViewScreen : AppCompatActivity() {
+class View_Screen : AppCompatActivity() {
     @SuppressLint("MissingInflatedId", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +25,7 @@ class ViewScreen : AppCompatActivity() {
         //Buttons Declared
         val display = findViewById<Button>(R.id.btnDisplay)
         val back = findViewById<Button>(R.id.btnReturn)
-        val rate = findViewById<Button>(R.id.btnAvgRatings)
+        val avg = findViewById<Button>(R.id.btnAvgRatings)
 
         //TextView Declared
         val outcome = findViewById<TextView>(R.id.txtDisplay)
@@ -38,10 +38,32 @@ class ViewScreen : AppCompatActivity() {
 
         //Display Button
         display.setOnClickListener {
-            outcome.text = "${songs[0].title}\n" +
-                "${songs[0].singer}\n" +
-                "${songs[0].rate}\n" +
-                "${songs[0].opinion}\n\n"
+                outcome.text = "Song: ${songs[0].title}\n" +
+                        "Artist: ${songs[0].singer}\n" +
+                        "Rating: ${songs[0].rate}\n" +
+                        "Comment: ${songs[0].opinion}\n\n" +
+
+                "Song: ${songs[1].title}\n" +
+                        "Artist: ${songs[1].singer}\n" +
+                        "Rating: ${songs[1].rate}\n" +
+                        "Comment: ${songs[1].opinion}\n\n" +
+
+                "Song: ${songs[2].title}\n" +
+                        "Artist: ${songs[2].singer}\n" +
+                        "Rating: ${songs[2].rate}\n" +
+                        "Comment: ${songs[2].opinion}\n\n" +
+
+                "Song: ${songs[3].title}\n" +
+                        "Artist: ${songs[3].singer}\n" +
+                        "Rating: ${songs[3].rate}\n" +
+                        "Comment: ${songs[3].opinion}\n\n"
+
+        }
+
+        //Rate Button
+        avg.setOnClickListener {
+            val sum = "${songs[0].rate} ${songs[1].rate}"
+            outcome.text = sum
         }
     }
 }

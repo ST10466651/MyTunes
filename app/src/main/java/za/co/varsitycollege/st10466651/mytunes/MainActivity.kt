@@ -13,18 +13,23 @@ import androidx.core.view.WindowInsetsCompat
 
 //Mutable Array Globally Accessible
 data class Songs(
-    var title: String?,
-    var singer: String?,
-    var rate: Int?,
-    var opinion: String?
+    var title: String,
+    var singer: String,
+    var rate: Int,
+    var opinion: String
 )
 
-val songs = mutableListOf(
-    Songs("j", "sf", 3, "kjhius;ouihsrtb"),
-    Songs("j", "sf", 3, "kjhius;ouihsrtb"),
-    Songs("j", "sf", 3, "kjhius;ouihsrtb"),
-    Songs("j", "sf", 3, "kjhius;ouihsrtb")
+val songs: MutableList<Songs> = mutableListOf(
+    Songs("My Darling", "Chella", 4, "Great beats"),
+    Songs("Isaka(6am)", "CIZA, Jazzworx", 3, "A bit repetative"),
+    Songs("Show Me Love", "WizTheMc, bees & honey", 5, "Amazing after a long day"),
+    Songs("Juicy", "Doja Cat, Tyga", 2, "It's not my type of music"),
 )
+
+//Global index
+var index = 0
+
+@Suppress("CAST_NEVER_SUCCEEDS")
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,12 +60,13 @@ class MainActivity : AppCompatActivity() {
 
         //Next Page Button
         next.setOnClickListener {
-            val intent = Intent(this, ViewScreen::class.java)
+            val intent = Intent(this, View_Screen::class.java)
             startActivity(intent)
         }
 
         //Add to Playlist Button
         add.setOnClickListener {
+            index = 4
             val titles = song.text.toString().trim().lowercase()
             val singers = artist.text.toString().trim().lowercase()
             val rates = ratings.text.toString().trim().lowercase()
@@ -77,6 +83,13 @@ class MainActivity : AppCompatActivity() {
                 builder.create().show()
                 return@setOnClickListener
             }
+
+
+            songs[index].title = song.text.toString()
+            songs[index].singer = artist.text.toString()
+            songs[index].rate = ratings.text as Int
+            songs[index].opinion = comments.text.toString()
+            index++
         }
     }
 }
