@@ -27,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDisplay" />
 
     <Button
         android:id="@+id/btnAvgRatings"
@@ -88,7 +88,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/txtDisplay"
         android:layout_width="300dp"
         android:layout_height="250dp"
         android:layout_marginStart="176dp"
@@ -96,7 +96,6 @@
         android:layout_marginEnd="178dp"
         android:layout_marginBottom="550dp"
         android:fontFamily="serif"
-        android:text="TextView"
         android:textColor="#FBFBFB"
         android:textSize="20sp"
         android:textStyle="italic"

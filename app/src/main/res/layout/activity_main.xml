@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D3CA0DED"
-    android:backgroundTint="#AEBB14D9"
+    android:backgroundTint="#D3CA0DED"
     android:backgroundTintMode="screen"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity">
 
     <Button
         android:id="@+id/btnAdd"
@@ -27,10 +27,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/edtComments" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnClose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -63,7 +63,7 @@
         android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintEnd_toStartOf="@+id/btnClose"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAdd"
         app:layout_constraintVertical_bias="0.0" />
@@ -88,7 +88,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/textView2"
+        android:id="@+id/edtSongTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="95dp"
@@ -98,6 +98,7 @@
         android:fontFamily="serif"
         android:hint="The Song Title:"
         android:textAlignment="viewStart"
+        android:textColor="#FDFBFB"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -107,7 +108,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/textView4"
+        android:id="@+id/edtRatings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="93dp"
@@ -116,36 +117,39 @@
         android:layout_marginBottom="360dp"
         android:fontFamily="serif"
         android:hint="The Rating (1-5):"
+        android:textColor="#FDFAFA"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/edtArtistName"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/textView5"
+        android:id="@+id/edtComments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="95dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="256dp"
         android:layout_marginBottom="331dp"
+        android:capitalize="sentences"
         android:fontFamily="serif"
         android:hint="Comments:"
+        android:textColor="#FFFDFD"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/edtRatings"
         app:layout_constraintVertical_bias="0.357" />
 
     <EditText
-        android:id="@+id/textView3"
+        android:id="@+id/edtArtistName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="92dp"
@@ -154,13 +158,14 @@
         android:layout_marginBottom="418dp"
         android:fontFamily="serif"
         android:hint="The Artist's Name:"
+        android:textColor="#FDFCFC"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/edtSongTitle"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
